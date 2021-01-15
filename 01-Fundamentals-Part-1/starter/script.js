@@ -283,7 +283,18 @@ console.log(typeof nothing)
  * basic operators
  */
 
+const now = 2021;
+const ageJose = now - 1990;
 
+
+console.log (ageJose * 2, ageJose / 10, 2 ** 3)
+// 2**3 significa 2 elvado a la 3 = 2*2*2
+
+
+/**
+ * 
+ * Checkpoint = vid 15 Operator precedence
+ */
 
 
 
