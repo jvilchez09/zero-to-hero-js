@@ -298,6 +298,10 @@ console.log (ageJose * 2, ageJose / 10, 2 ** 3)
  */
 
 
+ /**
+  * Strings and template literals
+  */
+/*
  const firstName = 'Jose';
 
 const job = 'Dev';
@@ -310,11 +314,45 @@ const jose = "I'm " + firstName + ' , a ' + (year - birthYear) + ' years old ' +
 
 console.log(jose);
 
-const joseNew = `I'm ${fristname}`;
+const joseNew = `I'm ${firstName}, a ${year - birthYear} year old ${job}`;
 
 console.log(joseNew)
 
+*/
 
+/*
+const age = 15;
+//if/else controlled structure
+if (age>=18) {
+    console.log('Sarah can start driving 🚗')
+} else {
+    const yearsLeft = 18 - age;
+    console.log(`Sarah is too young wait ${yearsLeft} years 😜`);
+}
 
+*/
 
+/**
+ * Type conversion and type coercion
+ */
+//type conversion
+/*
+ console.log(String(23))
+
+//  type coercion
+ let n = '1' + 1; //11 string
+ n = n - 1; //10 numero
+ console.log(n); // 10
+*/
+
+/**
+ * Truthy and falsy values
+ */
  
+ const money = 0;
+
+ if (money) {
+     console.log('Dont spend it all');
+ } else {
+     console.log('get a job');
+ }
