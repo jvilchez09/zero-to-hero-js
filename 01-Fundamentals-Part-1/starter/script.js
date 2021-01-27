@@ -348,11 +348,28 @@ if (age>=18) {
 /**
  * Truthy and falsy values
  */
- 
+ /*
  const money = 0;
 
  if (money) {
      console.log('Dont spend it all');
  } else {
      console.log('get a job');
- }
+ }*/
+/*
+const favourite = Number(prompt("Whats your fav numb?"));
+
+if (favourite === 23) {
+    console.log('cool 23 is amazing');
+
+} else if (favourite === 7){
+    console.log('cool 7 is ok');    
+} else {
+    console.log('not 7 or 23, not cool');
+}
+
+*/
+
+/**
+ * Up next Video 24
+ */
