@@ -371,5 +371,14 @@ if (favourite === 23) {
 */
 
 /**
- * Up next Video 24
+ * Logical Operators
  */
+/*
+const hasDriverLicense = true;
+const hasGoodVision = false;
+
+if (hasDriverLicense && hasGoodVision){
+    console.log('she can drive');
+}
+*/
+
