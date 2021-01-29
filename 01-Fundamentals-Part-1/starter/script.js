@@ -381,4 +381,36 @@ if (hasDriverLicense && hasGoodVision){
     console.log('she can drive');
 }
 */
+/**
+ * the switch statement
+ */
+/*
+switch (day) {
+    case 'monday':
+        console.log('a trabajars');        
+        break;
+    case 'tuesday':
+    case 'wednesday':
+        console.log('mariokart tour');
+    default:
+        break;
+}
+*/
+
+/**
+ * statements and expression
+ */
+/*
+//expressions
+ 2+2 ;
+ const name = 'jose';
+
+//  statements
+if (condition) {
+    
+} else {
+    
+}
+*/
+
 
