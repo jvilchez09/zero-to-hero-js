@@ -274,4 +274,18 @@ const passTest = true;
 if (passTest) hasDriverLIcense = true; //--> strict mode crea error aqui!
 if (hasDriversLIcense) console.log('I can Drive');
 
- 
+ /**
+  * 
+  * Functions
+  */
+
+  function logger (){
+      console.log('my name is Jose');
+  }
+
+  //Calling / running / invoking function
+  logger();
+
+  /**
+   * Checkpoint Function Declarations vs. Expressions
+   */
