@@ -413,4 +413,13 @@ if (condition) {
 }
 */
 
+/*
+*TErnary Operator
+*/ 
 
+const age = 23;
+const drink = age >= 18 ? 'Wine' : 'Water';
+console.log(drink);
+
+
+console.log(`I like to drink ${age >= 18 ? 'Wine' : 'Water'}`)

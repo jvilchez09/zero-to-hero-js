@@ -1,3 +1,4 @@
+'use strict';
 /*
 * Variables and data types
 */
@@ -260,9 +261,17 @@ showDetails();
 * loops and iterations
 */
 
-for (var i= 0; i < 10; i++){
-    console.log(i)
-}
+// for (var i= 0; i < 10; i++){
+//     console.log(i)
+// }
 
+
+
+
+let hasDriversLIcense = false;
+const passTest = true;
+
+if (passTest) hasDriverLIcense = true; //--> strict mode crea error aqui!
+if (hasDriversLIcense) console.log('I can Drive');
 
  
