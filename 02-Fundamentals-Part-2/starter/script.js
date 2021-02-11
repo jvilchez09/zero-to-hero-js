@@ -198,7 +198,7 @@ var whatDoYouDo = function(job, firstName) {
 console.log(whatDoYouDo('driver', 'john'));
  */
 
- /*
+/*
 * Objects and Methods
 */
 /*
@@ -257,7 +257,7 @@ showDetails();
 */
 
 
- /*
+/*
 * loops and iterations
 */
 
@@ -274,18 +274,35 @@ const passTest = true;
 if (passTest) hasDriverLIcense = true; //--> strict mode crea error aqui!
 if (hasDriversLIcense) console.log('I can Drive');
 
- /**
-  * 
-  * Functions
-  */
+/**
+ * 
+ * Functions
+ */
 
-  function logger (){
-      console.log('my name is Jose');
-  }
+function logger() {
+    console.log('my name is Jose');
+}
 
-  //Calling / running / invoking function
-  logger();
+//Calling / running / invoking function
+logger();
 
-  /**
-   * Checkpoint Function Declarations vs. Expressions
-   */
+/**
+ * Function Declarations vs. Expressions
+ */
+
+function calculateAge1(birthYear) {
+    return 2037 - birthYear;
+}
+
+const age1 = calculateAge1(1991);
+
+console.log(age1);
+
+const calculateAge2 = function (birthYear) {
+    return 2037 - birthYear;
+}
+
+const age2 = calculateAge2(1991);
+
+console.log(age2);
+
