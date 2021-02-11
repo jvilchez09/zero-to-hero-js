@@ -266,30 +266,30 @@ showDetails();
 // }
 
 
-
+/*
 
 let hasDriversLIcense = false;
 const passTest = true;
 
 if (passTest) hasDriverLIcense = true; //--> strict mode crea error aqui!
 if (hasDriversLIcense) console.log('I can Drive');
-
+*/
 /**
  * 
  * Functions
  */
-
+/*
 function logger() {
     console.log('my name is Jose');
 }
 
 //Calling / running / invoking function
 logger();
-
+*/
 /**
  * Function Declarations vs. Expressions
  */
-
+/*
 function calculateAge1(birthYear) {
     return 2037 - birthYear;
 }
@@ -305,4 +305,51 @@ const calculateAge2 = function (birthYear) {
 const age2 = calculateAge2(1991);
 
 console.log(age2);
+
+*/
+
+/**Arrow function */
+/*
+const calculateAge3 = birthYear => 2037 - birthYear;
+
+
+const age3 = calculateAge3(1990);
+console.log(age3);
+
+
+const yearsUntilRetirement = (birthYear, firstName) => {
+    const age = 2037 - birthYear;
+    const retiremente = 65- age;
+    // return retiremente;
+    return `${firstName} retires in ${retiremente} years`;
+}
+
+console.log(yearsUntilRetirement(1990, 'Jose'));
+*/
+
+/**
+ * Reviewing functions
+ */
+
+const calculateAge = function (birthYear) {
+    return 2037 - birthYear;
+}
+
+
+const yearsUntilRetirement = function (birthYear, firstName) {
+    const age = calculateAge(birthYear);
+    const retiremente = 65- age;
+
+    if (retiremente > 0) {
+        return retiremente;
+    } else {
+        return -1;
+    }
+
+    
+    // return `${firstName} retires in ${retiremente} years`;
+}
+
+console.log(yearsUntilRetirement(1990, 'Jose'));
+console.log(yearsUntilRetirement(1950, 'Miguel'));
 
