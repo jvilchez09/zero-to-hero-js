@@ -330,7 +330,7 @@ console.log(yearsUntilRetirement(1990, 'Jose'));
 /**
  * Reviewing functions
  */
-
+/*
 const calculateAge = function (birthYear) {
     return 2037 - birthYear;
 }
@@ -353,3 +353,8 @@ const yearsUntilRetirement = function (birthYear, firstName) {
 console.log(yearsUntilRetirement(1990, 'Jose'));
 console.log(yearsUntilRetirement(1950, 'Miguel'));
 
+*/
+
+/**
+ * 
+ */
