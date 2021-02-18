@@ -356,5 +356,15 @@ console.log(yearsUntilRetirement(1950, 'Miguel'));
 */
 
 /**
- * 
+ *  Introduction to arrays
  */
+
+ const friend = ['michael', 'mariana', 'carlos'];
+
+ const years = [1990, 1967, 2002, 2010];
+
+ const calculateAge = function (birthYear) {
+    return 2037 - birthYear;
+}
+
+const age1 = calculateAge(years[0]);
