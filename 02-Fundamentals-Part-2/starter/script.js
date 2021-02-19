@@ -359,6 +359,7 @@ console.log(yearsUntilRetirement(1950, 'Miguel'));
  *  Introduction to arrays
  */
 
+/*
  const friend = ['michael', 'mariana', 'carlos'];
 
  const years = [1990, 1967, 2002, 2010];
@@ -368,3 +369,95 @@ console.log(yearsUntilRetirement(1950, 'Miguel'));
 }
 
 const age1 = calculateAge(years[0]);
+
+*/
+
+/**
+ * array Operations
+ */
+/*
+const friends = ['michael', 'mariana', 'carlos'];
+
+//add elements
+friends.push('daniella');
+friends.unshift('Jhonatan');
+
+console.log(friends);
+
+//remove elements
+//elimina el final
+friends.pop();
+//elimina el primero
+friends.shift();
+
+//otros metodos
+indexOf('value');
+includes('value');
+*/
+
+/**
+ * Objects
+ */
+
+/* 
+const jose = {
+    firstName: 'Jose',
+    lastName: 'Vilchez',
+    age: 2037 - 1990,
+    friends: ['michael', 'mariana', 'carlos']
+}
+
+console.log(jose.firstName);
+console.log(jose['lastName']);
+
+const insertedIn = prompt('Que quieres saber');
+
+console.log(jose.insertedIn); //saldra un error porque buscara el key 'insertedIn'
+console.log(jose[insertedIn]);  // valida expresiones; funcionara por que reemplazara insertedIn con el valor insertado (debe existir la llave en el objeto)
+
+jose.location = 'Panama';
+jose['twitter'] = '@jvva';
+
+console.log(jose);
+
+*/
+/*
+const jose = {
+    firstName: 'Jose',
+    lastName: 'Vilchez',
+    age: 2037 - 1990,
+    birthYear: 1990,
+    friends: ['michael', 'mariana', 'carlos'],
+    // calculateAge: function (birthYear) {
+    //     return 2037 - birthYear;
+    // }
+    calculateAge: function () {
+        return 2037 - this.birthYear;
+    }
+}
+
+// console.log(jose.calculateAge(1990));
+// console.log(jose['calculateAge'](1990)); 
+
+console.log(jose.calculateAge());
+console.log(jose['calculateAge']()); 
+*/
+
+/**
+ * Looping arrays
+ */
+
+
+
+ const years = [1990, 2000, 1989, 2020];
+ const ages = [];
+
+
+ for (let i = 0; i < years.length; i++) {
+    ages.push(2037 - years[i])
+     
+ }
+
+ console.log(ages);
+
+ 
