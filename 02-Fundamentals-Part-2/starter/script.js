@@ -446,7 +446,7 @@ console.log(jose['calculateAge']());
 /**
  * Looping arrays
  */
-
+/*
 
 
  const years = [1990, 2000, 1989, 2020];
@@ -460,4 +460,19 @@ console.log(jose['calculateAge']());
 
  console.log(ages);
 
- 
+*/
+
+
+/**
+ * the while loop
+ */
+
+ let dice = Math.trunc(Math.random() * 6 + 1);
+
+ while (dice !== 6 ) {
+     console.log(`you rolled a ${dice}`);
+     dice = Math.trunc(Math.random() * 6 + 1);
+     if (dice === 6) {
+         console.log('Loop about to end')
+     }
+ }
