@@ -15,3 +15,7 @@ console.log(xsss);
 /**
  * checkpoint 56 instaling node js
  */
+
+console.log();
+
+console.log('');
