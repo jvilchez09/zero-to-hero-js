@@ -3,15 +3,13 @@
 
 const xsss = 23;
 
-if (condition) {
-}
-
 console.log();
 
 console.log(xsss);
 
 // Ledyba
 
+//instale el servidor en vivo de VS y el de Node js
 /**
- * checkpoint 56 instaling node js
+ * checkpoint 57 instaling node js
  */
