@@ -81,3 +81,7 @@ const calcTempAmplitudeNew = function (t1, t2) {
 
 const amplitude2 = calcTempAmplitudeNew(temperatires, temperatires2);
 console.log(amplitude2);
+
+/**
+ * checkpoint #61
+ */
