@@ -79,10 +79,25 @@ const calcTempAmplitudeNew = function (t1, t2) {
   return max - min;
 };
 
-debbuger;
+// debbuger;
 const amplitude2 = calcTempAmplitudeNew(temperatires, temperatires2);
 console.log(amplitude2);
 
 /**
  * checkpoint #61
  */
+
+const n = [3, 4, 6, 5];
+const m = [9, 0, 2, 5, 8, 3];
+const k = 5;
+
+const maxNum = function (n, m, k) {
+  let max = '';
+  let o = n.concat(m).sort().reverse();
+  for (let i = 0; i < k; i++) {
+    max += o[i];
+  }
+  console.log(max);
+};
+maxNum(n, m, k);
+// $ 98655
