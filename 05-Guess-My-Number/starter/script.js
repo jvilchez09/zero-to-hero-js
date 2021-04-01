@@ -11,6 +11,8 @@ document.querySelector('.score').textContent = 20;
 document.querySelector('.guess').value = 23;
 */
 
+/*
+
 const x = function () {
   console.log(document.querySelector('.guess').value);
 };
@@ -22,7 +24,7 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('.message').textContent = '⛔No number';
   }
 });
-
+*/
 /**
  * Checkpoint vid #74
  */
