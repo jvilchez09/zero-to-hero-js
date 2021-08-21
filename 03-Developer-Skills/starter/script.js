@@ -49,7 +49,7 @@ const calcTempAmplitude = function (temps) {
   console.log(min);
   return max - min;
 };
-
+VIDEO;
 const amplitude = calcTempAmplitude(temperatires);
 console.log(amplitude);
 
