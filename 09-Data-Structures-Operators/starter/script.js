@@ -34,6 +34,13 @@ const restaurant = {
       `order recived! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address}  at  ${time}`
     );
   },
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`HERE is you deli pastas with ${ing1}, ${ing2}, ${ing3}`);
+  },
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
 };
 
 restaurant.orderDelivery({
@@ -48,6 +55,7 @@ restaurant.orderDelivery({
   starterIndex: 2,
 });
 
+restaurant.orderPizza('hongos', 'maiz', 'tomates');
 /*
 const arr = [2,3,4];
 const a = arr[0];
@@ -81,7 +89,7 @@ console.log(p, q, r);
 */
 
 // destructuriong objects vid 104
-
+/*
 const { name, openingHours, categories } = restaurant;
 
 console.log(name, openingHours, categories);
@@ -113,3 +121,79 @@ const {
   fri: { open: o, close: c },
 } = openingHours;
 console.log(o, c);
+*/
+/**
+ * The spread Operator
+ */
+/*
+const arr = [7, 8, 9];
+const newArr = [1, 2, ...arr];
+console.log(newArr);
+
+const newMenu = [...restaurant.mainMenu, 'gnocci'];
+console.log(newMenu);
+
+//copy array
+
+const mainMenuCopy = [...restaurant.mainMenu];
+// Join 3 Arrays
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+// iterables: arrays, strings, maps, sets. NOT Objects (spread operator se usa con iterables)
+const str = 'jose';
+const letters = [...str, ' ', 'V.'];
+console.log(letters);
+
+// const ingredients = [
+//   prompt('hagamos pasta ing 1?'),
+//   prompt('hagamos pasta ing 2?'),
+//   prompt('hagamos pasta ing 3?'),
+// ];
+
+// restaurant.orderPasta(...ingredients);
+
+//Objetos
+
+const newRest = { foundedIn: 1990, ...restaurant, founder: 'Joseph' };
+console.log(newRest);
+
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'Risto Italo';
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
+*/
+
+/**
+ * Rest Pattern and Parameters
+ */
+
+//Spread, because on right side of =
+const arr = [1, 2, ...[3, 4]];
+
+//Rest, because on left side of =
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+
+console.log(a, b, others);
+
+//in objects
+const { sat: sab, ...weekDays } = restaurant.openingHours;
+console.log(sab);
+console.log(weekDays);
+
+// 2) functions
+// ... Rest oparameters
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+  // console.log(numbers);
+};
+
+add(2, 3);
+add(5, 3, 7, 2);
+add(8, 2, 5, 3, 2, 1, 5);
+
+const x = [23, 5, 7];
+add(...x);
