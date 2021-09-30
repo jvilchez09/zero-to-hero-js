@@ -166,11 +166,11 @@ console.log(restaurant.name);
 /**
  * Rest Pattern and Parameters
  */
-
+console.log('REST AND SPREAD');
 //Spread, because on right side of =
 const arr = [1, 2, ...[3, 4]];
 
-//Rest, because on left side of =
+//Rest (el resto), because on left side of =
 const [a, b, ...others] = [1, 2, 3, 4, 5];
 
 console.log(a, b, others);
@@ -183,6 +183,7 @@ console.log(weekDays);
 // 2) functions
 // ... Rest oparameters
 const add = function (...numbers) {
+  console.log(numbers);
   let sum = 0;
   for (let i = 0; i < numbers.length; i++) {
     sum += numbers[i];
@@ -197,3 +198,43 @@ add(8, 2, 5, 3, 2, 1, 5);
 
 const x = [23, 5, 7];
 add(...x);
+
+console.log('Short circuiting');
+console.log('----------OR-----------------');
+//short circuit evaluation = return the first truthy value
+console.log(3 || 'jose');
+console.log('' || 'jose');
+console.log(true || 0);
+console.log(undefined || null);
+
+console.log('----------AND-----------------');
+//short circuit evaluation = return the first falsy value
+console.log(0 && 'jose');
+console.log('' && 'jose');
+console.log(true && 'jj');
+console.log(undefined && null);
+
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mush', 'spich');
+}
+
+restaurant.orderPizza && restaurant.orderPizza('mush', 'spich');
+
+//Nullish coalescing Operator nullish values null and undefined ()
+restaurant.numGuest = 0;
+const guests = restaurant.numGuest || 10;
+console.log(guests);
+
+const guestCorrect = restaurant.numGuest ?? 10;
+console.log(guestCorrect);
+
+console.log('for-of loop');
+const menu = [restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu) console.log(item);
+//to get index
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}: ${el}`);
+}
+
+// console.log([...menu.entries()]);
