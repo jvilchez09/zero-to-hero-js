@@ -292,3 +292,18 @@ console.log(entries);
 for (const [key, { open, close }] of entries) {
   console.log(`on ${key} we open at ${open} and we close at ${close}`);
 }
+
+console.log('SETS');
+const orderSet = new Set(['pasta', 'pizza', 'risotto', 'pizza', 'risotto']);
+console.log(orderSet);
+
+console.log(new Set('jose'));
+console.log(orderSet.size);
+console.log(orderSet.has('pizza'));
+// orderSet.clear;
+
+//example
+const staff = ['waiter', 'chef', 'manager', 'chef', 'waiter'];
+
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
