@@ -422,3 +422,29 @@ console.log('a+very+nice+string'.split('+'));
 console.log('jose'.padStart(10, '#'));
 
 // repeat method -- repite los strings
+
+/**
+ * Code challenges
+ * write a program tha receives a list of variable names written in underscore_case and convert them to camelCase
+ * underscore_case
+ * first_name
+ * Some_variable
+ * delayed_departure
+ */
+
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+const buttom = document.querySelector('button');
+
+buttom.addEventListener('click', function () {
+  const text = document.querySelector('textarea').value;
+  let textArr = text.split('\n');
+  for (let index = 0; index < textArr.length; index++) {
+    // let underscoreIndex = textArr[index].indexOf("_");
+    let newText = textArr[index].toLowerCase().trim().split('_');
+    let textCorrect =
+      newText[0] + newText[1][0].toUpperCase() + newText[1].slice(1);
+    console.log(textCorrect);
+  }
+});
