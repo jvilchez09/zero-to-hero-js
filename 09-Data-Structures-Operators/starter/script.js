@@ -384,3 +384,41 @@ console.log(airline.slice(0, airline.indexOf(' ')));
 
 console.log(airline.slice(-2));
 console.log(airline.slice(1, -1));
+
+console.log('to lower case');
+//fix cap in name
+const passenger = 'JOse';
+const passengerCorrect =
+  passenger[0].toUpperCase() + passenger.slice(1).toLowerCase();
+console.log(passengerCorrect);
+//  trim method to clean white spaces
+
+/**
+ * Replacing
+ */
+
+const priceEU = '282,12%';
+const priceUSA = priceEU.replace('%', '$');
+console.log(priceUSA);
+
+/**
+ * Booleans
+ */
+
+//includes, startsWith, endsWith = returns true or false
+console.log(priceUSA.startsWith('2'));
+console.log(priceUSA.endsWith('$'));
+
+//Splits (most porwerful method)
+
+console.log('a+very+nice+string'.split('+'));
+
+//.join(" ") //dentro de parentesis pponemos con que se van a unir
+
+/**
+ * Padding strings añade una cantidad de caracteres especifgicados por ejemplo 10 asteriscos al inicio del string (hasta completar el largo del string incluido su largo original)
+ */
+
+console.log('jose'.padStart(10, '#'));
+
+// repeat method -- repite los strings
