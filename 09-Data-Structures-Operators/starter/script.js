@@ -334,3 +334,53 @@ console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
  * .delete
  * .size
  */
+const question = new Map([
+  ['question', 'whats the best progr language?'],
+  [1, 'c'],
+  [2, 'java'],
+  [3, 'js'],
+  ['correct', 3],
+  [true, 'correct'],
+  [false, 'try again'],
+]);
+
+console.log(question);
+
+/**
+ * Convert object to maps
+ */
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
+
+for (const [key, value] of question) {
+  if (typeof key === 'number') console.log(`answer ${key}: ${value}`);
+}
+
+const answer = 3; //Number(prompt('ur answer'));
+console.log(answer);
+
+console.log(question.get(question.get('correct') === answer));
+
+/**
+ * map to array
+ */
+console.log(...question);
+
+console.log('Working with strings');
+
+const airline = 'tap aire Portugal';
+const plane = 'A320';
+
+console.log(plane[0]);
+console.log('B236'[0]);
+
+console.log(airline.indexOf('r'));
+console.log(airline.lastIndexOf('r'));
+// the 4 is where the slice starts to extract
+console.log(airline.slice(4));
+//the second parameter is where the extract ends (fundamentals of slice method)
+console.log(airline.slice(4, 7));
+console.log(airline.slice(0, airline.indexOf(' ')));
+
+console.log(airline.slice(-2));
+console.log(airline.slice(1, -1));
