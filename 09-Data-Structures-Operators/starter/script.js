@@ -435,15 +435,26 @@ console.log('jose'.padStart(10, '#'));
 document.body.append(document.createElement('textarea'));
 document.body.append(document.createElement('button'));
 
-const buttom = document.querySelector('button');
+const button = document.querySelector('button');
 
-buttom.addEventListener('click', function () {
+button.addEventListener('click', function () {
+  const text = document.querySelector('textarea').value;
+  let textArr = text.split('\n');
+  for (let index = 0; index < textArr.length; index++) {
+    // let underscoreIndex = textArr[index].indexOf("_");
+    let newText = textArr[index].toLowerCase().trim().split('_');
+    let textCorrect =
+      newText[0] + newText[1][0].toUpperCase() + newText[1].slice(1);
+    console.log(textCorrect);
+  }
+});
+
+button.addEventListener('click', function () {
   const text = document.querySelector('textarea').value;
   let textArr = text.split('\n');
   for (const [i, row] of textArr.entries()) {
-    // let underscoreIndex = textArr[index].indexOf("_");
     let [first, second] = row.toLowerCase().trim().split('_');
-    let textCorrect = first + second[0].toUpperCase() + second.slice(1);
-    console.log(`${textCorrect.padEnd(20)}${'🚗'.repeat(i + 1)}`);
+    let textCamel = first + second[0].toUpperCase() + second.slice(1);
+    console.log(`${textCamel.padEnd(20)}${'🚗'.repeat(i + 1)}`);
   }
 });
