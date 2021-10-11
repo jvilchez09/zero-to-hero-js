@@ -441,7 +441,6 @@ button.addEventListener('click', function () {
   const text = document.querySelector('textarea').value;
   let textArr = text.split('\n');
   for (let index = 0; index < textArr.length; index++) {
-    // let underscoreIndex = textArr[index].indexOf("_");
     let newText = textArr[index].toLowerCase().trim().split('_');
     let textCorrect =
       newText[0] + newText[1][0].toUpperCase() + newText[1].slice(1);
@@ -451,8 +450,8 @@ button.addEventListener('click', function () {
 
 button.addEventListener('click', function () {
   const text = document.querySelector('textarea').value;
-  let textArr = text.split('\n');
-  for (const [i, row] of textArr.entries()) {
+  let rows = text.split('\n');
+  for (const [i, row] of rows.entries()) {
     let [first, second] = row.toLowerCase().trim().split('_');
     let textCamel = first + second[0].toUpperCase() + second.slice(1);
     console.log(`${textCamel.padEnd(20)}${'🚗'.repeat(i + 1)}`);
