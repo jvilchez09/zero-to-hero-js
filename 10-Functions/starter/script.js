@@ -58,6 +58,8 @@ console.log(jose);
  * higher order functions
  */
 
+/*
+
 const oneWord = function (str) {
   return str.replace(/ /g, '').toLowerCase();
 };
@@ -75,4 +77,63 @@ const transformer = function (str, fn) {
 
 transformer('js is the best', upperFirstWord);
 
-transformer('js is the best', oneWord);
+transformer('js is the best', oneWord);  
+
+*/
+
+/**
+ * function returning functions
+ */
+/*
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greeterHey = greet('Hey');
+greeterHey('joe');
+greeterHey('steev');
+
+greet('Hello')('jose');
+
+//turning to arrow fn
+const greet = greeting => name => console.log(`${greeting} ${name}`);
+
+*/
+
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode} ${flightNum}`
+    );
+    this.bookings.push({ flight: ` ${this.iataCode}`, name });
+  },
+};
+
+lufthansa.book(258, 'joe v.');
+console.log(lufthansa);
+const eurowings = {
+  airline: 'Eurowings',
+  iataCode: 'EW',
+  bookings: [],
+};
+
+const book = lufthansa.book;
+
+// book(23, 'sarah will');
+//call method sirve para especificar a que objeto apuntara "this" cuando la funcion se definio en un objeto
+book.call(eurowings, 23, 'sarah will');
+
+console.log(eurowings);
+
+// apply method
+
+const flightData = [585, 'estefs vils'];
+
+book.apply(eurowings, flightData);
+
+book.call(eurowings, ...flightData);
