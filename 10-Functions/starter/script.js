@@ -137,3 +137,34 @@ const flightData = [585, 'estefs vils'];
 book.apply(eurowings, flightData);
 
 book.call(eurowings, ...flightData);
+
+/**
+ * bind method
+ */
+
+const bookEW = book.bind(eurowings);
+bookEW(23, 'stev wils');
+
+// bind whith even listeners
+lufthansa.planes = 300;
+lufthansa.buyPlane = function () {
+  console.log(this); //this is the function calling in this case the event listener so it is the button
+  this.planes++;
+  console.log(this.planes);
+};
+
+document
+  .querySelector('.buy')
+  .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+//partial aplication
+const addTax = (rate, value) => value + value * rate;
+
+const addVat = addTax.bind(null, 0.23); //  el primer argumento es this keyword y el segundo el primer argumento de la funcion add tax que sera seteado
+
+console.log(addVat(100));
+
+const addTaxArrow = rate => value => value + value * rate;
+
+const addVatArrow = addTaxArrow(0.23);
+console.log(addVatArrow(100));
