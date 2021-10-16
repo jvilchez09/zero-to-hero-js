@@ -148,7 +148,7 @@ bookEW(23, 'stev wils');
 // bind whith even listeners
 lufthansa.planes = 300;
 lufthansa.buyPlane = function () {
-  console.log(this); //this is the function calling in this case the event listener so it is the button
+  console.log(this); //this is the function calling without bind the event listener  it is the button
   this.planes++;
   console.log(this.planes);
 };
@@ -168,3 +168,61 @@ const addTaxArrow = rate => value => value + value * rate;
 
 const addVatArrow = addTaxArrow(0.23);
 console.log(addVatArrow(100));
+
+/**
+ * immediately invoked function expressions
+ */
+
+//functions that disappear right after it's called one (useful with async/await)
+
+const runOnce = function () {
+  console.log('this will not run again');
+};
+
+runOnce();
+
+// IIFE immediately invoke fn expression
+//usefull to create private scope var
+(function () {
+  console.log('this will not run again');
+})();
+
+// in a block const and let var cant be accesible outside but with var the can be accesible outside
+{
+  const isPrivate = 23;
+  var notPrivate = 25;
+}
+
+// console.log(isPrivate);
+console.log(notPrivate);
+
+/**
+ * Closures
+ * it is not a feature that we explicitly use, we have to recognize when it happens as it happens automatically
+ */
+
+//functions have access to the variables created in the excecution context they where created, refrased: a function has acces to the variable enviroment (VE) of the excecution context in which it was created
+// closure: VE attached to the function, exactly as it was at the time and place the function was created
+
+/**
+ * Less formal closure def:
+ * A closure gives a function access to all variables of its parent function, even after that parent function has returned.
+ */
+const secureBooking = function () {
+  let passCount = 0;
+
+  return function () {
+    passCount++;
+    console.log(`${passCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
+
+booker(); //pass = 1 (as closure let the inner function has acces to passCount that is the outher function)
+
+booker();
+
+booker();
+
+console.dir(booker);
