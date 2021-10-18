@@ -74,3 +74,39 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+/*
+let arr = ['a', 'b', 'c', 'd', 'e'];
+
+console.log(arr.slice(2));
+console.log(arr.slice(2, 4)); // the last one wont be included
+console.log(arr.slice(-1)); //starts from the end -1 is the last  one
+console.log(arr.slice(1, -2));
+
+//SPLICE
+
+console.log(arr.splice(2)); // it mutates the original array (deletes the ones indicated)
+console.log(arr);
+
+// reverse
+const arr2 = ['j', 'i', 'h', 'g', 'f'];
+console.log(arr2.reverse()); // mutates the original array
+
+//concat
+const letters = arr.concat(arr2); //does not mutate original
+console.log(letters);
+console.log([...arr, ...arr2]); //does the same work as concat
+
+// JOIN
+console.log(letters.join('-'));
+*/
+
+for (const [i, movement] of movements.entries()) {
+}
+
+movements.forEach(function (movement, index, array) {
+  console.log(movement);
+  console.log(index);
+  console.log(array);
+});
+
+//foreach cant be break or continue
