@@ -125,7 +125,7 @@ const displayMovements = function (movements) {
   containerMovements.innerHTML = '';
   movements.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
-    const html = ` <div class="movements__row">
+    const html = ` <div class="movements__row"> 
     <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
     <div class="movements__value">${mov}</div>
   </div>`;
@@ -134,3 +134,20 @@ const displayMovements = function (movements) {
 };
 
 displayMovements(account1.movements);
+
+/**
+ * Data transformation
+ * Map, Filter, Reduce
+ * Map: similar to forEach, takes an array and creates a new one with the operation that we want.
+ * Filter takes the array and creates a new one with the elements that pass the specified test condition
+ * Reduce redices all elements to one single value, like adding all together
+ */
+
+/**
+ * Map Method
+ */
+
+const euroToUsd = 1.1;
+
+const movementsUsd = movements.map(mov => mov * euroToUsd);
+console.log(movementsUsd);
