@@ -135,6 +135,27 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
+const createUserName = function (accs) {
+  accs.forEach(function (acc) {
+    acc.userName = acc.owner
+      .toLocaleLowerCase()
+      .split(' ')
+      .map(function (name) {
+        return name[0];
+      })
+      .join('');
+  });
+};
+
+const user = 'Steven Thomas Williams';
+createUserName(accounts);
+console.log(accounts);
+
+const calcPrintBalance = function (movement) {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${balance} EUR`;
+};
+calcPrintBalance(account1.movements);
 /**
  * Data transformation
  * Map, Filter, Reduce
@@ -151,3 +172,37 @@ const euroToUsd = 1.1;
 
 const movementsUsd = movements.map(mov => mov * euroToUsd);
 console.log(movementsUsd);
+
+const movDesc = movements.map(
+  (mov, i) =>
+    `movimiento ${i + 1}: You ${mov > 0 ? 'deposit' : 'withdrew'} ${Math.abs(
+      mov
+    )}`
+);
+
+console.log(movDesc);
+
+const deposits = movements.filter(function (mov) {
+  return mov > 0;
+});
+console.log(deposits);
+
+const widrawal = movements.filter(function (mov) {
+  return mov < 0;
+});
+console.log(widrawal);
+
+const balance = movements.reduce(function (acc, cur, i, arr) {
+  return acc + cur;
+}, 0); // value at what it will start adding
+
+console.log(balance);
+
+const max = movements.reduce((acc, mov) => {
+  if (acc > mov) {
+    return acc;
+  } else {
+    return mov;
+  }
+}, movements[0]);
+console.log(max);
