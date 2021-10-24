@@ -135,6 +135,28 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
+const calcDisplaySummary = function (movements) {
+  const incomes = movements
+    .filter(mov => mov > 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumIn.textContent = `${incomes}`;
+
+  const out = movements.filter(mov => mov < 0).reduce((acc, mov) => acc + mov);
+  labelSumOut.textContent = `${Math.abs(out)}`;
+
+  const interest = movements
+    .filter(mov => mov > 0)
+    .map(deposit => (deposit * 1.2) / 100)
+    .filter((int, i, arr) => {
+      console.log(arr);
+      return int >= 1;
+    })
+    .reduce((acc, int) => acc + int);
+  labelSumInterest.textContent = interest;
+};
+
+calcDisplaySummary(account1.movements);
+
 const createUserName = function (accs) {
   accs.forEach(function (acc) {
     acc.userName = acc.owner
@@ -206,3 +228,14 @@ const max = movements.reduce((acc, mov) => {
   }
 }, movements[0]);
 console.log(max);
+
+const totalDeposit = movements
+  .filter(mov => mov > 0)
+  // .map(mov => mov * euroToUsd)
+  .map((mov, i, arr) => {
+    console.log(arr);
+    return mov * euroToUsd;
+  })
+  .reduce((acc, mov) => acc + mov, 0);
+
+console.log(totalDeposit);
