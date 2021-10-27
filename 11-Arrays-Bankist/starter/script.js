@@ -133,20 +133,20 @@ const displayMovements = function (movements) {
   });
 };
 
-displayMovements(account1.movements);
-
-const calcDisplaySummary = function (movements) {
-  const incomes = movements
+const calcDisplaySummary = function (acc) {
+  const incomes = acc.movements
     .filter(mov => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
   labelSumIn.textContent = `${incomes}`;
 
-  const out = movements.filter(mov => mov < 0).reduce((acc, mov) => acc + mov);
+  const out = acc.movements
+    .filter(mov => mov < 0)
+    .reduce((acc, mov) => acc + mov);
   labelSumOut.textContent = `${Math.abs(out)}`;
 
-  const interest = movements
+  const interest = acc.movements
     .filter(mov => mov > 0)
-    .map(deposit => (deposit * 1.2) / 100)
+    .map(deposit => (deposit * acc.interestRate) / 100)
     .filter((int, i, arr) => {
       console.log(arr);
       return int >= 1;
@@ -154,8 +154,6 @@ const calcDisplaySummary = function (movements) {
     .reduce((acc, int) => acc + int);
   labelSumInterest.textContent = interest;
 };
-
-calcDisplaySummary(account1.movements);
 
 const createUserName = function (accs) {
   accs.forEach(function (acc) {
@@ -174,10 +172,45 @@ createUserName(accounts);
 console.log(accounts);
 
 const calcPrintBalance = function (movement) {
-  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+  const balance = movement.reduce((acc, mov) => acc + mov, 0);
   labelBalance.textContent = `${balance} EUR`;
 };
-calcPrintBalance(account1.movements);
+
+/**
+ *
+ * event handler
+ *
+ */
+
+let currAcc;
+
+btnLogin.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  currAcc = accounts.find(acc => acc.userName === inputLoginUsername.value);
+  console.log(currAcc);
+
+  // console.log(inputLoginPin.value);
+  if (currAcc?.pin === Number(inputLoginPin.value)) {
+    console.log('logged in');
+    //display ui message
+    labelWelcome.textContent = `Hey you, ${currAcc.owner.split(' ')[0]}`;
+    containerApp.style.opacity = 100;
+
+    //clear fields
+    inputLoginUsername.value = inputLoginPin.value = '';
+    inputLoginPin.blur();
+    //display movements
+    displayMovements(currAcc.movements);
+    //display balance
+    console.log('FOR BALANCE');
+    console.log(currAcc);
+    calcPrintBalance(currAcc.movements);
+    //display sumary
+    calcDisplaySummary(currAcc);
+  }
+});
+
 /**
  * Data transformation
  * Map, Filter, Reduce
@@ -243,3 +276,7 @@ console.log(totalDeposit);
 /**
  * Find method: find() method returns the value of the first element in the provided array that satisfies the provided testing function.
  */
+
+const account = accounts.find(acc => acc.owner === 'Jessica Davis');
+
+console.log(account);
