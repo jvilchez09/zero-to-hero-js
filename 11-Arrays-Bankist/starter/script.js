@@ -167,13 +167,22 @@ const createUserName = function (accs) {
   });
 };
 
+const updateUI = function (acc) {
+  //display movements
+  displayMovements(acc.movements);
+  //display balance
+  calcPrintBalance(acc);
+  //display sumary
+  calcDisplaySummary(acc);
+};
+
 const user = 'Steven Thomas Williams';
 createUserName(accounts);
 console.log(accounts);
 
-const calcPrintBalance = function (movement) {
-  const balance = movement.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${balance} EUR`;
+const calcPrintBalance = function (acc) {
+  acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${acc.balance} EUR`;
 };
 
 /**
@@ -200,15 +209,49 @@ btnLogin.addEventListener('click', function (e) {
     //clear fields
     inputLoginUsername.value = inputLoginPin.value = '';
     inputLoginPin.blur();
-    //display movements
-    displayMovements(currAcc.movements);
-    //display balance
-    console.log('FOR BALANCE');
-    console.log(currAcc);
-    calcPrintBalance(currAcc.movements);
-    //display sumary
-    calcDisplaySummary(currAcc);
+    updateUI(currAcc);
   }
+});
+
+btnTransfer.addEventListener('click', function (e) {
+  e.preventDefault();
+  const amount = Number(inputTransferAmount.value);
+  const receiverAcc = accounts.find(
+    acc => acc.userName === inputTransferTo.value
+  );
+
+  console.log(amount, receiverAcc);
+  inputTransferTo.value = inputTransferAmount.value = '';
+
+  if (
+    amount > 0 &&
+    receiverAcc &&
+    currAcc.balance >= amount &&
+    receiverAcc?.userName !== currAcc.userName
+  ) {
+    //doing the transfer
+    currAcc.movements.push(-amount);
+    receiverAcc.movements.push(amount);
+
+    updateUI(currAcc);
+  }
+});
+
+btnClose.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  if (
+    inputCloseUsername.value === currAcc.userName &&
+    Number(inputClosePin.value) === currAcc.pin
+  ) {
+    const index = accounts.findIndex(acc => acc.userName === currAcc.userName);
+    console.log(index);
+    //delete account
+    accounts.splice(index, 1);
+    //hide ui
+    containerApp.style.opacity = 0;
+  }
+  inputCloseUsername.value = inputClosePin.value = '';
 });
 
 /**
@@ -280,3 +323,7 @@ console.log(totalDeposit);
 const account = accounts.find(acc => acc.owner === 'Jessica Davis');
 
 console.log(account);
+
+/**
+ * find indexmethod
+ */
