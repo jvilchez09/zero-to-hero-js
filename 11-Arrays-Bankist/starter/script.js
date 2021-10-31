@@ -121,9 +121,11 @@ currencies.forEach(function (value, key, map) {
   console.log(map);
 });
 
-const displayMovements = function (movements) {
+const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = '';
-  movements.forEach(function (mov, i) {
+
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+  movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
     const html = ` <div class="movements__row"> 
     <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
@@ -267,6 +269,12 @@ btnClose.addEventListener('click', function (e) {
   inputCloseUsername.value = inputClosePin.value = '';
 });
 
+let sorted = false;
+btnSort.addEventListener('click', function (e) {
+  e.preventDefault();
+  displayMovements(currAcc.movements, !sorted);
+  sorted = !sorted;
+});
 /**
  * Data transformation
  * Map, Filter, Reduce
@@ -375,3 +383,29 @@ const accMovs2 = accounts
   .flatMap(acc => acc.movements)
   .reduce((acc, mov) => acc + mov, 0);
 console.log(accMovs2);
+
+/**
+ * sort()
+ */
+
+const movs = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const owner = ['Joe', 'Charles', 'Marianne', 'Martha'];
+console.log(owner.sort());
+
+console.log(movs);
+
+//return < 0, a,b (keep order)
+//return > 0, b,a (switch order)
+//return = 0, no changes
+
+//expanded
+// movs.sort((a, b) => {
+//   if (a > b) return 1;
+//   if (b > a) return -1;
+// });
+
+//simplified
+movs.sort((a, b) => a - b);
+
+console.log(movs);
