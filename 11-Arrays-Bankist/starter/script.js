@@ -409,3 +409,9 @@ console.log(movs);
 movs.sort((a, b) => a - b);
 
 console.log(movs);
+
+const z = Array.from({ length: 7 }, (_, i) => i + 1);
+
+/**
+ * Array.from puede recibir un arreglo y luego ejecutar una funcion map en el segundo parametro
+ */
