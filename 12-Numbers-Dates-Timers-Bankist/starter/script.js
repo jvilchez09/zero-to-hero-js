@@ -275,14 +275,16 @@ btnLoan.addEventListener('click', function (e) {
   const amount = Math.floor(inputLoanAmount.value);
 
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
-    // Add movement
-    currentAccount.movements.push(amount);
+    setTimeout(function () {
+      // Add movement
+      currentAccount.movements.push(amount);
 
-    //add loan date
-    currentAccount.movementsDates.push(new Date().toISOString());
+      //add loan date
+      currentAccount.movementsDates.push(new Date().toISOString());
 
-    // Update UI
-    updateUI(currentAccount);
+      // Update UI
+      updateUI(currentAccount);
+    }, 2500);
   }
   inputLoanAmount.value = '';
 });
@@ -448,3 +450,39 @@ const calcDaysPassed = (date1, date2) =>
 const days1 = calcDaysPassed(new Date(2037, 3, 14), new Date(2037, 3, 4));
 
 console.log(days1);
+
+/**
+ * INTL number
+ */
+
+const num = 4546567874164564.23;
+
+const options = {
+  style: 'unit', //we can specify currency but then have to specify currency EUR por ejemplo
+  // unit: 'mile-per-hour',
+  unit: 'celsius',
+};
+
+console.log(new Intl.NumberFormat('en-US', options).format(num));
+
+/**
+ * timers
+ * setTimeOut: runs just once after defined time
+ * setInterval keeps running until we stop it
+ */
+
+const ingredientes = ['olives', 'spinach'];
+
+const timerPizza = setTimeout(
+  (ing1, ing2) => console.log(`hers u pizza whit ${ing1} and ${ing2}`),
+  3000,
+  ...ingredientes
+);
+//condicion para eliminare el timeout
+if (ingredientes.includes('spinach')) clearTimeout(timerPizza);
+
+/**
+ * setInterval
+ */
+
+//
