@@ -32,3 +32,85 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
+
+console.log('---selecting elements---*-*-*-*-');
+console.log(document.documentElement);
+console.log(document.head);
+console.log(document.body);
+
+const header = document.querySelector('.header');
+document.querySelectorAll('section--1'); //nodelist
+
+document.getElementById('section--1');
+const allbuttons = document.getElementsByTagName('button'); //html collection---it gets updated automatically
+console.log(allbuttons);
+
+console.log(document.getElementsByClassName('btn')); //returns a html collection
+
+// creating and inserting elements
+// .incertadjacentHYML
+
+const message = document.createElement('div');
+
+message.classList.add('cookie-message');
+// message.textContent = 'se use cookies for bla bla';
+message.innerHTML =
+  'se use cookies for bla bla <button class="btn btn--close-cookie">vale</button>';
+
+header.prepend(message);
+
+// header.append(message.cloneNode(true));
+
+header.before(message);
+header.after(message);
+
+/**
+ * Delete elements
+ */
+
+document
+  .querySelector('.btn--close-cookie')
+  .addEventListener('click', function () {
+    message.remove();
+  });
+
+/**
+ * STyles
+ */
+
+//styles
+
+message.style.backgroundColor = '#37383d';
+
+console.log(message.style.backgroundColor);
+
+console.log(getComputedStyle(message).color);
+
+console.log(message);
+
+const height = (message.style.height =
+  Number.parseFloat(getComputedStyle(message).height, 10) + 30 + 'px');
+
+console.log(getComputedStyle(message).height);
+console.log(height);
+
+document.documentElement.style.setProperty('--color-primary', 'orangered');
+
+//attributes
+//standar
+const logo = document.querySelector('.nav__logo');
+console.log(logo.alt);
+console.log(logo.src);
+console.log(logo.className);
+//nonstandard
+console.log(logo.deigner);
+
+console.log(logo.getAttribute('designer'));
+console.log(logo.setAttribute('Copmp', 'Bankist'));
+
+const link = document.querySelector('.nav__link--btn');
+console.log(link.href); //absolute path
+console.log(link.getAttribute('href')); //as in html
+
+//data attributes
+console.log(logo.dataset.versionNumber);
