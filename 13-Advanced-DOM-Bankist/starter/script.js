@@ -114,3 +114,44 @@ console.log(link.getAttribute('href')); //as in html
 
 //data attributes
 console.log(logo.dataset.versionNumber);
+
+// Classes
+logo.classList.add('c', 'j');
+logo.classList.remove('c', 'j');
+logo.classList.toggle('c');
+logo.classList.contains('c'); // not includes
+
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+// Button scrolling
+btnScrollTo.addEventListener('click', function (e) {
+  //element we want to do scroll
+  const s1coords = section1.getBoundingClientRect();
+  console.log('s1coords', s1coords);
+  //element we click to scroll
+  console.log('boton que hace scroll', e.target.getBoundingClientRect());
+
+  console.log('Current scroll (X/Y)', window.pageXOffset, window.pageYOffset);
+
+  console.log(
+    'height/width viewport',
+    document.documentElement.clientHeight,
+    document.documentElement.clientWidth
+  );
+  // top is always relative to the viewport top when used in s1coords.top
+  // Scrolling
+  // window.scrollTo(
+  //   s1coords.left + window.pageXOffset,
+  //   s1coords.top + window.pageYOffset
+
+  // );
+  //old school
+  // window.scrollTo({
+  //   left: s1coords.left + window.pageXOffset,
+  //   top: s1coords.top + window.pageYOffset,
+  //   behavior: 'smooth',
+  // });
+  //modern way
+  section1.scrollIntoView({ behavior: 'smooth' });
+});
