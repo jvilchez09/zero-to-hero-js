@@ -172,3 +172,35 @@ h1.addEventListener('mouseenter', alertH1);
 // h1.onmouseenter = function (e) {
 //   alert('u reading heading');
 // };
+/**
+ * Bubbleling in practice
+ */
+
+// rgb(255,255,255)
+const randomInt = (min, max) =>
+  Math.floor(Math.random() * (max - min + 1) + min);
+const randomColor = () =>
+  `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
+console.log(randomColor());
+
+document.querySelector('.nav__link').addEventListener('click', function (e) {
+  console.log('Link', e.target, e.currentTarget);
+  this.style.backgroundColor = randomColor();
+
+  //stop propagation
+  // e.stopPropagation(); //not a good idea in practice
+});
+
+document.querySelector('.nav__links').addEventListener('click', function (e) {
+  console.log('Container', e.target, e.currentTarget);
+  this.style.backgroundColor = randomColor();
+});
+
+document.querySelector('.nav').addEventListener(
+  'click',
+  function (e) {
+    console.log('Nav', e.target, e.currentTarget);
+    this.style.backgroundColor = randomColor();
+  },
+  true // hace que sea capture primero, no en el bubbleing face sino en la propagacion
+);
