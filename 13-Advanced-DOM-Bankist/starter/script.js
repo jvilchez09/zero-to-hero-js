@@ -99,6 +99,21 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
   }
 });
 
+//tabbed component
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
+
+tabsContainer.addEventListener('click', function (e) {
+  const clicked = e.target.closest('.operations__tab');
+  console.log(clicked);
+
+  //guard clause
+  if (!clicked) return;
+
+  tabs.clicked.classList.add('operations__tab--active');
+});
+
 console.log('---selecting elements---*-*-*-*-');
 console.log(document.documentElement);
 console.log(document.head);
@@ -242,7 +257,7 @@ document.querySelector('.nav').addEventListener(
  * DOM Traversion
  */
 
-//going down child
+//going downward: child
 console.log(h1.childNodes);
 console.log(h1.children);
 h1.firstElementChild.style.color = 'white';
@@ -261,3 +276,7 @@ console.log(h1.previousSibling);
 console.log(h1.nextSibling);
 
 console.log(h1.parentElement.children);
+
+/**
+ *
+ */
