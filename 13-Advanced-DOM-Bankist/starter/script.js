@@ -11,6 +11,8 @@ const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
 
+const nav = document.querySelector('.nav');
+
 const openModal = function (e) {
   e.preventDefault();
   modal.classList.remove('hidden');
@@ -111,8 +113,33 @@ tabsContainer.addEventListener('click', function (e) {
   //guard clause
   if (!clicked) return;
 
-  tabs.clicked.classList.add('operations__tab--active');
+  tabs.forEach(t => t.classList.remove('operations__tab--active'));
+  clicked.classList.add('operations__tab--active');
+
+  tabsContent.forEach(c => c.classList.remove('operations__content--active'));
+  //active content area
+  document
+    .querySelector(`.operations__content--${clicked.dataset.tab}`)
+    .classList.add('operations__content--active');
 });
+
+//menu fade animationn
+const handleHover = function (e) {
+  if (e.target.classList.contains('nav__link')) {
+    const link = e.target;
+    const siblings = link.closest('.nav').querySelectorAll('.nav__link');
+    const logo = link.closest('.nav').querySelector('img');
+
+    siblings.forEach(el => {
+      if (el != link) el.style.opacity = this;
+    });
+    logo.style.opacity = this;
+  }
+};
+//passingh argument into handler
+nav.addEventListener('mouseover', handleHover.bind(0.5));
+
+nav.addEventListener('mouseout', handleHover.bind(1));
 
 console.log('---selecting elements---*-*-*-*-');
 console.log(document.documentElement);
@@ -278,5 +305,5 @@ console.log(h1.nextSibling);
 console.log(h1.parentElement.children);
 
 /**
- *
+ * passing event handlers
  */
