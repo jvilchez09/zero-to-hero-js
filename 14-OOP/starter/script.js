@@ -62,11 +62,37 @@ class PersonCl {
   calcAge() {
     console.log(2037 - this.birthYear);
   }
+
+  get age() {
+    return 2037 - this.birthYear;
+  }
 }
 const jessica = new PersonCl('Jess', 1996);
 console.log(jessica);
 jessica.calcAge();
 
+console.log(jessica.age);
+
 // 1. classes are not hoisted
 //2. classes are first-class citizens
 //3. classes are excecuted in strict mode
+
+/**
+ * Setters and getters
+ */
+
+const account = {
+  owner: 'jose',
+  movements: [200, 530, 120, 300],
+
+  get latest() {
+    return this.movements.slice(-1).pop();
+  },
+  set latest(mov) {
+    this.movements.push(mov);
+  },
+};
+console.log(account.latest);
+
+account.latest = 50;
+console.log(account.movements);
