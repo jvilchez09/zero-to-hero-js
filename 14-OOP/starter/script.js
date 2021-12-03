@@ -58,6 +58,7 @@ class PersonCl {
     this.firstName = firstName;
     this.birthYear = birthYear;
   }
+  //instance method
   //methods will be added to .prototype propertie
   calcAge() {
     console.log(2037 - this.birthYear);
@@ -65,6 +66,11 @@ class PersonCl {
 
   get age() {
     return 2037 - this.birthYear;
+  }
+  //static method
+  static hey() {
+    console.log('HEY THERE 😆');
+    console.log(this);
   }
 }
 const jessica = new PersonCl('Jess', 1996);
@@ -96,3 +102,40 @@ console.log(account.latest);
 
 account.latest = 50;
 console.log(account.movements);
+
+/**
+ * Static methods
+ */
+
+Person.hey = function () {
+  console.log('HEY THERE 😆');
+  console.log(this);
+};
+
+Person.hey();
+
+PersonCl.hey();
+
+/**
+ * Inheritance between classes
+ */
+const Student = function (firstName, birthYear, course) {
+  Person.call(this, firstName, birthYear);
+  this.course = course;
+};
+// linking prototypes
+Student.prototype = Object.create(Person.prototype);
+
+Student.prototype.introduce = function () {
+  console.log(`My name is ${this.firstName} and I study ${this.course}`);
+};
+
+const mike = new Student('Mike', 2020, 'Computer Sci');
+
+console.log(mike);
+
+mike.introduce();
+
+Student.prototype.constructor = Student;
+
+console.dir(Student.prototype.constructor);
