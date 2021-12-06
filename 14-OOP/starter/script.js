@@ -139,3 +139,22 @@ mike.introduce();
 Student.prototype.constructor = Student;
 
 console.dir(Student.prototype.constructor);
+
+/**
+ * Object.create
+ */
+
+const PersonProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+};
+
+const steven = Object.create(PersonProto);
+steven.birthYear = 1990;
+
+console.log(steven);
+
+/**
+ * Encapsulation
+ */
