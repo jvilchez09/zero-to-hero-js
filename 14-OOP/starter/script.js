@@ -156,5 +156,84 @@ steven.birthYear = 1990;
 console.log(steven);
 
 /**
- * Encapsulation
+ * Encapsulation: private class fields
  */
+
+//Public/Private fields
+//Public/Private methods
+
+/* this is how private fields are defines the # make them private
+#movements = []
+
+*/
+
+class Account {
+  // 1) Public fields (instances)
+  locale = navigator.language;
+
+  // 2) Private fields (instances)
+  #movements = [];
+  #pin;
+
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this.#pin = pin;
+
+    // Protected property
+    // this._movements = [];
+    // this.locale = navigator.language;
+
+    console.log(`Thanks for opening an account, ${owner}`);
+  }
+
+  // 3) Public methods
+
+  // Public interface
+  getMovements() {
+    return this.#movements;
+  }
+
+  deposit(val) {
+    this.#movements.push(val);
+    return this;
+  }
+
+  withdraw(val) {
+    this.deposit(-val);
+    return this;
+  }
+
+  requestLoan(val) {
+    // if (this.#approveLoan(val)) {
+    if (this._approveLoan(val)) {
+      this.deposit(val);
+      console.log(`Loan approved`);
+      return this;
+    }
+  }
+
+  static helper() {
+    console.log('Helper');
+  }
+
+  // 4) Private methods
+  // #approveLoan(val) {
+  _approveLoan(val) {
+    return true;
+  }
+}
+
+const acc1 = new Account('joe', 'USD', 1111);
+acc1.deposit(1500);
+acc1.requestLoan(100);
+
+console.log(acc1._approveLoan(10));
+
+/**
+ * Chaining methods
+ */
+
+acc1.deposit(1500).deposit(1500);
+
+//return this in the function os a class so the methods are chainable
